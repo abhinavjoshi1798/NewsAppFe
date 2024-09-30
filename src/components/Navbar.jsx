@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -13,6 +12,7 @@ function ResponsiveNavbar({searchQuery,setSearchQuery}) {
 
   // Function to handle setting the category parameter
   const handleCategoryChange = (category) => {
+    setSearchQuery("")
     setSearchParams({ category });
   };
 
@@ -23,7 +23,12 @@ function ResponsiveNavbar({searchQuery,setSearchQuery}) {
   };
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
+    <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark" 
+    style={{position:"sticky",
+      top:"0px",
+      left:"0px",
+      zIndex:100
+    }}>
       <Container fluid>
         <Navbar.Brand onClick={() => handleCategoryChange('general')} >News</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />

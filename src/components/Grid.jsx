@@ -2,8 +2,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function Grid({data,totalResults}) {
-    console.log("data in grid",data);
+function Grid({data}) {
+    
 
     const titleStyle = {
         display: '-webkit-box',
@@ -38,10 +38,10 @@ function Grid({data,totalResults}) {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'top',
-            border: '1px solid gray',
+            // border: '1px solid gray',
           }}
         >
-          <div className="p-2 border bg-light" style={{ width: '100%' }}>
+          <div className="p-3 m-1" style={{ width: '100%', boxShadow:"rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px" , borderRadius:"15px", }}>
             {/* Title with 2-line clamp */}
             <p style={titleStyle}>
               <i>{el?.title}</i>
@@ -50,7 +50,7 @@ function Grid({data,totalResults}) {
             {/* Image if available */}
             {el.image !== 'None' && (
               <img
-                src={el.image}
+              src={el.image ? el.image : el.urlToImage}
                 alt="News"
                 style={{ maxWidth: '80%', display: 'flex', margin: 'auto' }}
               />
